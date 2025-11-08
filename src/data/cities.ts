@@ -23,86 +23,89 @@ export interface City {
 }
 
 // Enhanced city positions for 51 cities across India
+// Positions calculated from actual coordinates (longitude, latitude)
+// India bounds: Longitude 68-97°E, Latitude 8-37°N
+// x = (lon - 68) / 29, y = 1 - (lat - 8) / 29 (inverted for screen coords)
 export const cityPositions = {
   // North India
-  'Delhi': { x: 0.45, y: 0.25 },
-  'Gurgaon': { x: 0.44, y: 0.26 },
-  'Noida': { x: 0.46, y: 0.25 },
-  'Faridabad': { x: 0.45, y: 0.27 },
-  'Chandigarh': { x: 0.43, y: 0.22 },
-  'Amritsar': { x: 0.40, y: 0.20 },
-  'Ludhiana': { x: 0.41, y: 0.21 },
+  'Delhi': { x: 0.317, y: 0.289 }, // [77.2090, 28.6139]
+  'Gurgaon': { x: 0.311, y: 0.295 }, // [77.0266, 28.4595]
+  'Noida': { x: 0.324, y: 0.292 }, // [77.3910, 28.5355]
+  'Faridabad': { x: 0.321, y: 0.297 }, // [77.3178, 28.4089]
+  'Chandigarh': { x: 0.303, y: 0.217 }, // [76.7794, 30.7333]
+  'Amritsar': { x: 0.237, y: 0.185 }, // [74.8723, 31.6340]
+  'Ludhiana': { x: 0.271, y: 0.210 }, // [75.8573, 30.9010]
   
   // Rajasthan
-  'Jaipur': { x: 0.42, y: 0.32 },
-  'Jodhpur': { x: 0.38, y: 0.33 },
-  'Udaipur': { x: 0.40, y: 0.37 },
-  'Kota': { x: 0.43, y: 0.36 },
+  'Jaipur': { x: 0.269, y: 0.349 }, // [75.7873, 26.9124]
+  'Jodhpur': { x: 0.173, y: 0.371 }, // [73.0243, 26.2389]
+  'Udaipur': { x: 0.197, y: 0.429 }, // [73.7125, 24.5854]
+  'Kota': { x: 0.271, y: 0.407 }, // [75.8648, 25.2138]
   
   // Gujarat
-  'Ahmedabad': { x: 0.30, y: 0.40 },
-  'Surat': { x: 0.32, y: 0.44 },
-  'Vadodara': { x: 0.31, y: 0.41 },
-  'Rajkot': { x: 0.28, y: 0.42 },
+  'Ahmedabad': { x: 0.158, y: 0.482 }, // [72.5714, 23.0225]
+  'Surat': { x: 0.167, y: 0.546 }, // [72.8311, 21.1702]
+  'Vadodara': { x: 0.180, y: 0.506 }, // [73.2081, 22.3072]
+  'Rajkot': { x: 0.097, y: 0.507 }, // [70.8022, 22.3039]
   
   // Maharashtra
-  'Mumbai': { x: 0.35, y: 0.55 },
-  'Pune': { x: 0.40, y: 0.58 },
-  'Nagpur': { x: 0.51, y: 0.52 },
-  'Nashik': { x: 0.38, y: 0.52 },
-  'Aurangabad': { x: 0.43, y: 0.55 },
-  'Solapur': { x: 0.43, y: 0.61 },
+  'Mumbai': { x: 0.168, y: 0.618 }, // [72.8777, 19.0760]
+  'Pune': { x: 0.202, y: 0.638 }, // [73.8567, 18.5204]
+  'Nagpur': { x: 0.382, y: 0.547 }, // [79.0882, 21.1458]
+  'Nashik': { x: 0.200, y: 0.586 }, // [73.7898, 19.9975]
+  'Aurangabad': { x: 0.253, y: 0.590 }, // [75.3433, 19.8762]
+  'Solapur': { x: 0.273, y: 0.667 }, // [75.9064, 17.6599]
   
   // Karnataka
-  'Bangalore': { x: 0.48, y: 0.75 },
-  'Mysore': { x: 0.46, y: 0.77 },
-  'Hubli': { x: 0.44, y: 0.68 },
-  'Mangalore': { x: 0.42, y: 0.73 },
+  'Bangalore': { x: 0.331, y: 0.828 }, // [77.5946, 12.9716]
+  'Mysore': { x: 0.298, y: 0.852 }, // [76.6394, 12.2958]
+  'Hubli': { x: 0.245, y: 0.746 }, // [75.1240, 15.3647]
+  'Mangalore': { x: 0.236, y: 0.831 }, // [74.8560, 12.9141]
   
   // Tamil Nadu
-  'Chennai': { x: 0.55, y: 0.78 },
-  'Coimbatore': { x: 0.48, y: 0.79 },
-  'Madurai': { x: 0.50, y: 0.82 },
-  'Salem': { x: 0.51, y: 0.76 },
-  'Tiruchirappalli': { x: 0.52, y: 0.79 },
+  'Chennai': { x: 0.423, y: 0.825 }, // [80.2707, 13.0827]
+  'Coimbatore': { x: 0.309, y: 0.896 }, // [76.9558, 11.0168]
+  'Madurai': { x: 0.349, y: 0.934 }, // [78.1198, 9.9252]
+  'Salem': { x: 0.350, y: 0.874 }, // [78.1460, 11.6643]
+  'Tiruchirappalli': { x: 0.369, y: 0.904 }, // [78.7047, 10.7905]
   
   // Andhra Pradesh & Telangana
-  'Hyderabad': { x: 0.50, y: 0.65 },
-  'Visakhapatnam': { x: 0.58, y: 0.65 },
-  'Vijayawada': { x: 0.55, y: 0.69 },
-  'Guntur': { x: 0.54, y: 0.70 },
-  'Tirupati': { x: 0.52, y: 0.74 },
+  'Hyderabad': { x: 0.362, y: 0.676 }, // [78.4867, 17.3850]
+  'Visakhapatnam': { x: 0.525, y: 0.666 }, // [83.2185, 17.6868]
+  'Vijayawada': { x: 0.436, y: 0.707 }, // [80.6480, 16.5062]
+  'Guntur': { x: 0.429, y: 0.714 }, // [80.4365, 16.3067]
+  'Tirupati': { x: 0.394, y: 0.806 }, // [79.4192, 13.6288]
   
   // Kerala
-  'Kochi': { x: 0.45, y: 0.82 },
-  'Thiruvananthapuram': { x: 0.46, y: 0.85 },
-  'Kozhikode': { x: 0.44, y: 0.79 },
-  'Kottayam': { x: 0.45, y: 0.83 },
+  'Kochi': { x: 0.285, y: 0.934 }, // [76.2673, 9.9312]
+  'Thiruvananthapuram': { x: 0.308, y: 0.982 }, // [76.9366, 8.5241]
+  'Kozhikode': { x: 0.268, y: 0.888 }, // [75.7804, 11.2588]
+  'Kottayam': { x: 0.294, y: 0.945 }, // [76.5222, 9.5916]
   
   // West Bengal
-  'Kolkata': { x: 0.68, y: 0.45 },
-  'Howrah': { x: 0.67, y: 0.45 },
-  'Durgapur': { x: 0.66, y: 0.42 },
-  'Asansol': { x: 0.65, y: 0.42 },
+  'Kolkata': { x: 0.702, y: 0.499 }, // [88.3639, 22.5726]
+  'Howrah': { x: 0.700, y: 0.502 }, // [88.3103, 22.5958]
+  'Durgapur': { x: 0.666, y: 0.466 }, // [87.3119, 23.5204]
+  'Asansol': { x: 0.654, y: 0.460 }, // [86.9842, 23.6739]
   
   // Odisha
-  'Bhubaneswar': { x: 0.62, y: 0.52 },
-  'Cuttack': { x: 0.63, y: 0.53 },
-  'Rourkela': { x: 0.60, y: 0.48 },
+  'Bhubaneswar': { x: 0.614, y: 0.575 }, // [85.8245, 20.2961]
+  'Cuttack': { x: 0.616, y: 0.571 }, // [85.8790, 20.4625]
+  'Rourkela': { x: 0.581, y: 0.507 }, // [84.8536, 22.2604]
   
   // Bihar & Jharkhand
-  'Patna': { x: 0.61, y: 0.38 },
-  'Gaya': { x: 0.60, y: 0.39 },
-  'Ranchi': { x: 0.62, y: 0.43 },
-  'Jamshedpur': { x: 0.64, y: 0.44 },
+  'Patna': { x: 0.591, y: 0.393 }, // [85.1376, 25.5941]
+  'Gaya': { x: 0.586, y: 0.422 }, // [84.9994, 24.7914]
+  'Ranchi': { x: 0.597, y: 0.471 }, // [85.3240, 23.3441]
+  'Jamshedpur': { x: 0.627, y: 0.492 }, // [86.1844, 22.8046]
   
   // Uttar Pradesh
-  'Lucknow': { x: 0.55, y: 0.32 },
-  'Kanpur': { x: 0.54, y: 0.33 },
-  'Agra': { x: 0.50, y: 0.32 },
-  'Varanasi': { x: 0.58, y: 0.37 },
+  'Lucknow': { x: 0.446, y: 0.352 }, // [80.9462, 26.8467]
+  'Kanpur': { x: 0.425, y: 0.363 }, // [80.3319, 26.4499]
+  'Agra': { x: 0.345, y: 0.340 }, // [78.0081, 27.1767]
+  'Varanasi': { x: 0.516, y: 0.393 }, // [82.9739, 25.3176]
 
-  // International cities for testing
+  // International cities for testing (keeping original positions)
   'Beijing': { x: 0.75, y: 0.15 },
   'Shanghai': { x: 0.78, y: 0.25 },
   'London': { x: 0.15, y: 0.15 }
@@ -179,84 +182,151 @@ export const getAQIFromPM25 = (pm25: number): { aqi: string; color: string } => 
 
 // Enhanced function to fetch real pollution data from WAQI API with better error handling
 export const fetchPollutionData = async (): Promise<City[]> => {
-  const apiToken = '199320f70237e0be9b83b0074ac2f8e081377ea4';
+  const apiToken = '4a7e5798b31fe9f2ea647092cab3df39005039d9';
   const updatedCities: City[] = [];
   
   console.log('Starting WAQI API data fetch for', initialCitiesData.length, 'cities');
   
-  for (const city of initialCitiesData) {
-    try {
-      // Try different city name formats for better API matching
-      const cityQueries = [
-        city.name.toLowerCase(),
-        `${city.name.toLowerCase()}, ${city.state.toLowerCase()}`,
-        city.name.toLowerCase().replace(/\s+/g, '-')
-      ];
-      
-      let apiData = null;
-      
-      for (const query of cityQueries) {
-        try {
-          const response = await fetch(`https://api.waqi.info/feed/${encodeURIComponent(query)}/?token=${apiToken}`);
-          const data = await response.json();
-          
-          if (data.status === 'ok' && data.data && data.data.aqi !== '-') {
-            apiData = data.data;
-            console.log(`Successfully fetched data for ${city.name} using query: ${query}`);
-            break;
-          }
-        } catch (queryError) {
-          console.log(`Query failed for ${city.name} with query ${query}:`, queryError);
-          continue;
-        }
-      }
-      
-      if (apiData) {
-        const pm25 = apiData.iaqi?.pm25?.v || city.pm25;
-        const pm10 = apiData.iaqi?.pm10?.v || city.pm10;
-        const aqiInfo = getAQIFromPM25(pm25);
-        
-        updatedCities.push({
-          ...city,
-          pm25,
-          pm10,
-          aqi: aqiInfo.aqi,
-          color: aqiInfo.color,
-          actualAqi: apiData.aqi,
-          dominentPol: apiData.dominentpol,
-          lastUpdate: apiData.time?.s,
-          humidity: apiData.iaqi?.h?.v,
-          temperature: apiData.iaqi?.t?.v,
-          pressure: apiData.iaqi?.p?.v,
-          windSpeed: apiData.iaqi?.w?.v,
-          no2: apiData.iaqi?.no2?.v,
-          o3: apiData.iaqi?.o3?.v,
-          so2: apiData.iaqi?.so2?.v,
-          co: apiData.iaqi?.co?.v,
-          position: cityPositions[city.name as keyof typeof cityPositions]
-        });
-        
-        console.log(`Updated ${city.name}: PM2.5=${pm25}, AQI=${apiData.aqi}, Dominant Pollutant=${apiData.dominentpol}`);
-      } else {
-        // Use default data if API call fails
-        console.log(`Using default data for ${city.name} - API data not available`);
-        updatedCities.push({
-          ...city,
-          position: cityPositions[city.name as keyof typeof cityPositions]
-        });
-      }
-    } catch (error) {
-      console.log(`Failed to fetch data for ${city.name}:`, error);
-      updatedCities.push({
-        ...city,
-        position: cityPositions[city.name as keyof typeof cityPositions]
-      });
-    }
-    
-    // Add a small delay to avoid rate limiting
-    await new Promise(resolve => setTimeout(resolve, 200));
+  // Process cities in batches to avoid rate limiting
+  const batchSize = 5;
+  const batches = [];
+  for (let i = 0; i < initialCitiesData.length; i += batchSize) {
+    batches.push(initialCitiesData.slice(i, i + batchSize));
   }
   
-  console.log('Completed WAQI API data fetch. Updated', updatedCities.filter(c => c.actualAqi).length, 'cities with real data');
+  for (const batch of batches) {
+    // Process batch in parallel
+    const batchPromises = batch.map(async (city) => {
+      try {
+        let apiData = null;
+        
+        // Try multiple approaches to get data for the city
+        const attempts = [
+          // 1. Try by city name (WAQI format: city/country or just city)
+          async () => {
+            const cityName = city.name.toLowerCase().replace(/\s+/g, '-');
+            const url = `https://api.waqi.info/feed/${cityName}/?token=${apiToken}`;
+            const response = await fetch(url);
+            const data = await response.json();
+            if (data.status === 'ok' && data.data && data.data.aqi && data.data.aqi !== '-') {
+              return data.data;
+            }
+            return null;
+          },
+          
+          // 2. Try by coordinates (more reliable)
+          async () => {
+            const [lon, lat] = city.coordinates;
+            const url = `https://api.waqi.info/feed/geo:${lat};${lon}/?token=${apiToken}`;
+            const response = await fetch(url);
+            const data = await response.json();
+            if (data.status === 'ok' && data.data && data.data.aqi && data.data.aqi !== '-') {
+              return data.data;
+            }
+            return null;
+          },
+          
+          // 3. Try city name with India country code
+          async () => {
+            const cityName = city.name.toLowerCase().replace(/\s+/g, '-');
+            const url = `https://api.waqi.info/feed/${cityName}/india/?token=${apiToken}`;
+            const response = await fetch(url);
+            const data = await response.json();
+            if (data.status === 'ok' && data.data && data.data.aqi && data.data.aqi !== '-') {
+              return data.data;
+            }
+            return null;
+          },
+          
+          // 4. Try search API as fallback
+          async () => {
+            const cityName = encodeURIComponent(city.name);
+            const url = `https://api.waqi.info/search/?keyword=${cityName}&token=${apiToken}`;
+            const response = await fetch(url);
+            const data = await response.json();
+            if (data.status === 'ok' && data.data && data.data.length > 0) {
+              // Get the first result's UID and fetch its data
+              const uid = data.data[0].uid;
+              const feedUrl = `https://api.waqi.info/feed/@${uid}/?token=${apiToken}`;
+              const feedResponse = await fetch(feedUrl);
+              const feedData = await feedResponse.json();
+              if (feedData.status === 'ok' && feedData.data && feedData.data.aqi && feedData.data.aqi !== '-') {
+                return feedData.data;
+              }
+            }
+            return null;
+          }
+        ];
+        
+        // Try each approach until one succeeds
+        for (const attempt of attempts) {
+          try {
+            apiData = await attempt();
+            if (apiData) {
+              console.log(`✓ Successfully fetched data for ${city.name}`);
+              break;
+            }
+          } catch (err) {
+            // Continue to next attempt
+            continue;
+          }
+        }
+        
+        if (apiData) {
+          // Extract pollution data from API response
+          const pm25 = apiData.iaqi?.pm25?.v || apiData.iaqi?.pm25?.value || city.pm25;
+          const pm10 = apiData.iaqi?.pm10?.v || apiData.iaqi?.pm10?.value || city.pm10;
+          const aqiValue = typeof apiData.aqi === 'number' ? apiData.aqi : parseInt(apiData.aqi) || pm25;
+          const aqiInfo = getAQIFromPM25(pm25);
+          
+          return {
+            ...city,
+            pm25,
+            pm10,
+            aqi: aqiInfo.aqi,
+            color: aqiInfo.color,
+            actualAqi: aqiValue,
+            dominentPol: apiData.dominentpol || 'pm25',
+            lastUpdate: apiData.time?.s || new Date().toISOString(),
+            humidity: apiData.iaqi?.h?.v || apiData.iaqi?.h?.value,
+            temperature: apiData.iaqi?.t?.v || apiData.iaqi?.t?.value,
+            pressure: apiData.iaqi?.p?.v || apiData.iaqi?.p?.value,
+            windSpeed: apiData.iaqi?.w?.v || apiData.iaqi?.w?.value,
+            no2: apiData.iaqi?.no2?.v || apiData.iaqi?.no2?.value,
+            o3: apiData.iaqi?.o3?.v || apiData.iaqi?.o3?.value,
+            so2: apiData.iaqi?.so2?.v || apiData.iaqi?.so2?.value,
+            co: apiData.iaqi?.co?.v || apiData.iaqi?.co?.value,
+            position: cityPositions[city.name as keyof typeof cityPositions]
+          };
+        } else {
+          // Use default data if API call fails
+          console.log(`⚠ Using default data for ${city.name} - API data not available`);
+          return {
+            ...city,
+            position: cityPositions[city.name as keyof typeof cityPositions]
+          };
+        }
+      } catch (error) {
+        console.error(`✗ Failed to fetch data for ${city.name}:`, error);
+        return {
+          ...city,
+          position: cityPositions[city.name as keyof typeof cityPositions]
+        };
+      }
+    });
+    
+    // Wait for batch to complete
+    const batchResults = await Promise.all(batchPromises);
+    updatedCities.push(...batchResults);
+    
+    // Add delay between batches to avoid rate limiting (WAQI allows ~1000 calls/day)
+    if (batches.indexOf(batch) < batches.length - 1) {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+    }
+  }
+  
+  const successCount = updatedCities.filter(c => c.actualAqi).length;
+  console.log(`✅ Completed WAQI API data fetch. Updated ${successCount}/${updatedCities.length} cities with real data`);
+  
   return updatedCities;
 };

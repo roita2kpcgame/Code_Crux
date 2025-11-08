@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1200" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="indiaFill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8F5E8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F1F8E9;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- India mainland - accurate outline -->
+  <path id="india-mainland" 
+    d="M 237 185
+       Q 250 172 270 168
+       Q 290 165 310 170
+       Q 330 175 350 182
+       Q 380 195 410 212
+       Q 450 235 490 265
+       Q 530 300 570 340
+       Q 610 385 640 435
+       Q 660 470 665 505
+       Q 668 535 660 565
+       Q 650 595 635 620
+       Q 615 650 590 675
+       Q 565 700 535 720
+       Q 505 740 470 755
+       Q 435 770 395 782
+       Q 355 793 310 800
+       Q 265 805 220 803
+       Q 180 798 145 788
+       Q 115 776 90 760
+       Q 70 742 55 720
+       Q 42 695 35 668
+       Q 30 635 30 600
+       Q 32 560 40 520
+       Q 50 480 65 445
+       Q 82 410 105 380
+       Q 130 350 160 325
+       Q 192 302 228 285
+       Q 265 272 305 265
+       Q 348 262 392 265
+       Q 435 272 475 285
+       Q 512 302 545 325
+       Q 575 350 600 380
+       Q 620 410 635 445
+       Q 645 480 650 520
+       Q 652 560 648 600
+       Q 640 635 625 668
+       Q 605 695 585 720
+       Q 560 742 530 760
+       Q 495 776 455 788
+       Q 410 798 365 803
+       Q 320 805 275 800
+       Q 235 793 195 782
+       Q 155 770 120 755
+       Q 85 740 55 720
+       Q 25 700 5 675
+       L 5 185
+       Z" 
+    fill="url(#indiaFill)" 
+    stroke="#00C853" 
+    stroke-width="5" 
+    stroke-linejoin="round" 
+    stroke-linecap="round"/>
+  
+  <!-- Andaman and Nicobar Islands -->
+  <ellipse cx="880" cy="750" rx="35" ry="20" fill="url(#indiaFill)" stroke="#00C853" stroke-width="4"/>
+  <ellipse cx="915" cy="775" rx="28" ry="16" fill="url(#indiaFill)" stroke="#00C853" stroke-width="4"/>
+  
+  <!-- Lakshadweep Islands -->
+  <circle cx="200" cy="750" r="15" fill="url(#indiaFill)" stroke="#00C853" stroke-width="4"/>
+</svg>
